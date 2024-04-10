@@ -14,9 +14,9 @@ import {
     Area,
     Bar,
     Dot
-} from './../../../../components/recharts';
+} from '../../../../components/recharts';
 
-import colors from './../../../../colors';
+import colors from '../../../../colors';
 
 const CHART_LENGTH = 30;
 const CHART_START_DATE = moment().subtract(CHART_LENGTH, 'months');
@@ -28,8 +28,8 @@ const dataGenerator = (index) => {
     return {
         key: index,
         month: moment(CHART_START_DATE).add(index, 'months').format('MMM YY'),
-        "Real OD": referenceValue,
-        "Predicted OD": referenceValue - _.random(halfedRefVal, halfedRefVal * 1.1),
+        "Real ID": referenceValue,
+        "Predicted ID": referenceValue - _.random(halfedRefVal, halfedRefVal * 1.1),
     };
 }
 
@@ -46,7 +46,7 @@ const generateDot = ({stroke, ...other}) => (
     />
 );
 
-export const AudienceMetricsChart = ({height, className}) => (
+export const IDMetricsChart = ({height, className}) => (
     <ResponsiveContainer
         width='100%'
         minHeight='250px'
@@ -54,7 +54,7 @@ export const AudienceMetricsChart = ({height, className}) => (
         {...(!_.isUndefined(height) ? {
             height
         } : {
-            aspect: 1 / 1
+            aspect: 2 / 1
         })}
     >
         <ComposedChart data={data}
@@ -65,12 +65,12 @@ export const AudienceMetricsChart = ({height, className}) => (
           <Tooltip />
           <Legend />
 
-          <Area dataKey='Real OD' fill={ colors['purple-02'] } stroke={ colors['purple'] } activeDot={ null } />
-          <Area dataKey='Predicted OD' fill={ colors['primary-04'] } stroke={ colors['primary'] } activeDot={{r: 5}} dot={generateDot}  />
+          <Area dataKey='Real ID' fill={ colors['purple-02'] } stroke={ colors['purple'] } activeDot={ null } />
+          <Area dataKey='Predicted ID' fill={ colors['primary-04'] } stroke={ colors['primary'] } activeDot={{r: 5}} dot={generateDot}  />
        </ComposedChart>
     </ResponsiveContainer>
 );
-AudienceMetricsChart.propTypes = {
+IDMetricsChart.propTypes = {
     height: PropTypes.string,
     className: PropTypes.string
 }
