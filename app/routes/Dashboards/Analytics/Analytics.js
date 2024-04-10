@@ -41,6 +41,8 @@ const LAYOUT = {
   "metric-v-target-pageviews": { h: 6, md: 4 },
   "analytics-audience-metrics": { h: 9, minH: 7 },
   "traffic-channels": { md: 6, h: 6 },
+  "predicted-ID": { h: 9, minH: 7 },
+  "predicted-OD": { h: 9, minH: 7 },
   sessions: { md: 6, h: 6, maxH: 9, minW: 3 },
   spend: { md: 6, h: 7 },
   "website-performance": { md: 6, h: 11 },
@@ -253,7 +255,28 @@ export class Analytics extends React.Component {
                 </CardFooter>
               </Card>
             </Grid.Col>
-            
+            <Grid.Col {...applyColumn("predicted-ID", layouts)}>
+              <Card>
+                <CardHeader className="bb-0 pt-3 pb-4 bg-none" tag="h6">
+                  <i className="fa fa-ellipsis-v mr-2 text-body"></i> Predicted ID and Real Time ID Measurements Simulation
+                </CardHeader>
+                <CardBody className="pt-2 flex-column">
+                  <Grid.Ready>
+                    <IDMetricsChart height="100%" className="flex-fill" />
+                  </Grid.Ready>
+                </CardBody>
+                <CardFooter>
+                  <Media className="small">
+                    <Media left>
+                      <i className="fa fa-fw fa-info-circle mr-2"></i>
+                    </Media>
+                    <Media body>
+                        Simulation of real time data output ID and predicted ID
+                    </Media>
+                  </Media>
+                </CardFooter>
+              </Card>
+            </Grid.Col>
             <Grid.Col {...applyColumn("predicted-OD", layouts)}>
               <Card>
                 <CardHeader className="bb-0 pt-3 pb-4 bg-none" tag="h6">
@@ -271,29 +294,6 @@ export class Analytics extends React.Component {
                     </Media>
                     <Media body>
                     Simulation of real time data output OD and predicted OD
-                    </Media>
-                  </Media>
-                </CardFooter>
-              </Card>
-            </Grid.Col>
-              
-            <Grid.Col {...applyColumn("predicted-ID", layouts)}>
-              <Card>
-                <CardHeader className="bb-0 pt-3 pb-4 bg-none" tag="h6">
-                  <i className="fa fa-ellipsis-v mr-2 text-body"></i> Predicted ID and Real Time ID Measurements Simulation
-                </CardHeader>
-                <CardBody className="d-flex flex-column">
-                  <Grid.Ready>
-                    <IDMetricsChart height="100%" className="flex-fill" />
-                  </Grid.Ready>
-                </CardBody>
-                <CardFooter>
-                  <Media className="small">
-                    <Media left>
-                      <i className="fa fa-fw fa-info-circle mr-2"></i>
-                    </Media>
-                    <Media body>
-                        Simulation of real time data output ID and predicted ID
                     </Media>
                   </Media>
                 </CardFooter>

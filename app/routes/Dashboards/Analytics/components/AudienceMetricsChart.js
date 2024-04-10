@@ -46,7 +46,8 @@ const generateDot = ({stroke, ...other}) => (
     />
 );
 
-export const AudienceMetricsChart = ({height, className}) => (
+export const AudienceMetricsChart = ({height, className}) => {
+    return ( 
     <ResponsiveContainer
         width='100%'
         minHeight='250px'
@@ -69,7 +70,8 @@ export const AudienceMetricsChart = ({height, className}) => (
           <Area dataKey='Predicted OD' fill={ colors['primary-04'] } stroke={ colors['primary'] } activeDot={{r: 5}} dot={generateDot}  />
        </ComposedChart>
     </ResponsiveContainer>
-);
+    );
+};
 AudienceMetricsChart.propTypes = {
     height: PropTypes.string,
     className: PropTypes.string

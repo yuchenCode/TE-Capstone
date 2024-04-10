@@ -46,7 +46,10 @@ const generateDot = ({stroke, ...other}) => (
     />
 );
 
-export const IDMetricsChart = ({height, className}) => (
+export const IDMetricsChart = ({height, className}) => {
+    console.log(data)
+    
+    return ( 
     <ResponsiveContainer
         width='100%'
         minHeight='250px'
@@ -69,7 +72,8 @@ export const IDMetricsChart = ({height, className}) => (
           <Area dataKey='Predicted ID' fill={ colors['primary-04'] } stroke={ colors['primary'] } activeDot={{r: 5}} dot={generateDot}  />
        </ComposedChart>
     </ResponsiveContainer>
-);
+    );
+};
 IDMetricsChart.propTypes = {
     height: PropTypes.string,
     className: PropTypes.string
