@@ -26,7 +26,6 @@ import { applyColumn } from "../../../components/FloatGrid";
 
 import { HeaderMain } from "../../components/HeaderMain";
 
-import { MetricVsTarget } from "../../components/Analytics/MetricVsTarget";
 import { WebsitePerformance } from "../../components/Analytics/WebsitePerformance";
 import { TinyAreaChart } from "../../components/Analytics/TinyAreaChart";
 import { SimpleLineChart } from "../../Graphs/ReCharts/components/SimpleLineChart";
@@ -34,14 +33,9 @@ import { SimpleLineChart } from "../../Graphs/ReCharts/components/SimpleLineChar
 import classes from "./Statistics.scss";
 
 const LAYOUT = {
-  "metric-v-target-users": { h: 6, md: 4 },
-  "metric-v-target-sessions": { h: 6, md: 4 },
-  "metric-v-target-pageviews": { h: 6, md: 4 },
-  "traffic-channels": { md: 6, h: 6 },
   sessions: { md: 6, h: 6, maxH: 9, minW: 3 },
   spend: { md: 6, h: 7 },
   "website-performance": { md: 6, h: 11 },
-  "organic-traffic": { md: 6, h: 10 },
 };
 
 const SessionByDevice = (props) => (
@@ -90,64 +84,15 @@ export class Statistics extends React.Component {
                     color="link"
                     className="text-left pl-0 text-decoration-none mb-2"
                   >
-                    <i className="fa fa-globe text-body mr-2"></i>
-                    www.webkom.co
+                    <i className="fa fa-spinner text-body mr-2"></i>
+                    Decision Tree
                     <i className="fa fa-angle-down text-body ml-2" />
                   </DropdownToggle>
-                  <div className="small">Last 30 Days vs Previous Period</div>
                   <DropdownMenu>
-                    <DropdownItem header>Select Site:</DropdownItem>
-                    <DropdownItem active>www.webkom.co</DropdownItem>
-                    <DropdownItem>www.spin.webkom.co</DropdownItem>
-                    <DropdownItem divider />
-                    <DropdownItem>
-                      <i className="fa fa-fw fa-plus mr-2"></i>
-                      Add New
-                    </DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledButtonDropdown>
-              </ButtonGroup>
-              <ButtonGroup className="align-self-start mr-2">
-                <UncontrolledButtonDropdown className="ml-auto flex-column">
-                  <DropdownToggle
-                    color="link"
-                    className="text-left pl-0 text-decoration-none mb-2"
-                  >
-                    <i className="fa fa-calendar-o text-body mr-2"></i>
-                    Last Month
-                    <i className="fa fa-angle-down text-body ml-2" />
-                  </DropdownToggle>
-                  <div className="small">Jan 01, 2017 to Jan 31, 2017</div>
-                  <DropdownMenu>
-                    <DropdownItem header>Select Period:</DropdownItem>
-                    <DropdownItem active>Last Month</DropdownItem>
-                    <DropdownItem>Last 3 Months</DropdownItem>
-                    <DropdownItem>Last 6 Months</DropdownItem>
-                    <DropdownItem>Last Year</DropdownItem>
-                    <DropdownItem divider />
-                    <DropdownItem>Custom...</DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledButtonDropdown>
-              </ButtonGroup>
-              <ButtonGroup className="align-self-start mr-2">
-                <UncontrolledButtonDropdown className="ml-auto flex-column">
-                  <DropdownToggle
-                    color="link"
-                    className="text-left pl-0 text-decoration-none mb-2"
-                  >
-                    <i className="fa fa-calendar-o text-body mr-2"></i>
-                    Previous Period
-                    <i className="fa fa-angle-down text-body ml-2" />
-                  </DropdownToggle>
-                  <div className="small">Jan 01, 2017 to Jan 31, 2017</div>
-                  <DropdownMenu>
-                    <DropdownItem header>Select Period:</DropdownItem>
-                    <DropdownItem active>Previous Period</DropdownItem>
-                    <DropdownItem>Last 3 Months</DropdownItem>
-                    <DropdownItem>Last 6 Months</DropdownItem>
-                    <DropdownItem>Last Year</DropdownItem>
-                    <DropdownItem divider />
-                    <DropdownItem>Custom...</DropdownItem>
+                    <DropdownItem header>Select Model:</DropdownItem>
+                    <DropdownItem active>Decision Tree</DropdownItem>
+                    <DropdownItem>Random Forest</DropdownItem>
+                    <DropdownItem>Neural Network</DropdownItem>
                   </DropdownMenu>
                 </UncontrolledButtonDropdown>
               </ButtonGroup>
@@ -175,190 +120,6 @@ export class Statistics extends React.Component {
             columnSizes={this.state.layouts}
             rowHeight={55}
           >
-            <Grid.Col {...applyColumn("metric-v-target-users", layouts)}>
-              <Card>
-                <CardHeader className="bb-0 pt-3 pb-0 bg-none" tag="h6">
-                  <i className="fa fa-ellipsis-v text-body mr-2"></i> Users
-                </CardHeader>
-                <CardBody className="pt-2">
-                  <MetricVsTarget
-                    title="Users"
-                    value="168,793"
-                    progressbarColor="danger"
-                    targetValue="169,001"
-                  />
-                </CardBody>
-                <CardFooter>
-                  <Media className="small">
-                    <Media left>
-                      <i className="fa fa-fw fa-info-circle mr-2"></i>
-                    </Media>
-                    <Media body>
-                      How do your users (visitors), sessions (visits) and
-                      pageviews metrics for{" "}
-                      <abbr title="attribute" className="text-dark">
-                        www.webkom.com
-                      </abbr>{" "}
-                      compare to your targets over the last 30 days?
-                    </Media>
-                  </Media>
-                </CardFooter>
-              </Card>
-            </Grid.Col>
-            <Grid.Col {...applyColumn("metric-v-target-sessions", layouts)}>
-              <Card>
-                <CardHeader className="bb-0 pt-3 pb-0 bg-none" tag="h6">
-                  <i className="fa fa-ellipsis-v text-body mr-2"></i> Sessions
-                </CardHeader>
-                <CardBody className="pt-2">
-                  <MetricVsTarget
-                    title="Sessions"
-                    value="529,747"
-                    progressbarValue="67"
-                    progressbarColor="primary"
-                    targetValue="782,957"
-                  />
-                </CardBody>
-                <CardFooter>
-                  <Media className="small">
-                    <Media left>
-                      <i className="fa fa-fw fa-info-circle mr-2"></i>
-                    </Media>
-                    <Media body>
-                      How do your users (visitors), sessions (visits) and
-                      pageviews metrics for{" "}
-                      <abbr title="attribute" className="text-dark">
-                        www.webkom.com
-                      </abbr>{" "}
-                      compare to your targets over the last 30 days?
-                    </Media>
-                  </Media>
-                </CardFooter>
-              </Card>
-            </Grid.Col>
-            <Grid.Col {...applyColumn("metric-v-target-pageviews", layouts)}>
-              <Card>
-                <CardHeader className="bb-0 pt-3 pb-0 bg-none" tag="h6">
-                  <i className="fa fa-ellipsis-v text-body mr-2"></i> Pageviews
-                </CardHeader>
-                <CardBody className="pt-2">
-                  <MetricVsTarget
-                    title="Pageviews"
-                    value="1,763,981"
-                    progressbarValue="34"
-                    progressbarColor="secondary"
-                    targetValue="1,567,334"
-                  />
-                </CardBody>
-                <CardFooter>
-                  <Media className="small">
-                    <Media left>
-                      <i className="fa fa-fw fa-info-circle mr-2"></i>
-                    </Media>
-                    <Media body>
-                      How do your users (visitors), sessions (visits) and
-                      pageviews metrics for{" "}
-                      <abbr title="attribute" className="text-dark">
-                        www.webkom.com
-                      </abbr>{" "}
-                      compare to your targets over the last 30 days?
-                    </Media>
-                  </Media>
-                </CardFooter>
-              </Card>
-            </Grid.Col>
-            <Grid.Col {...applyColumn("traffic-channels", layouts)}>
-              <Card className="d-flex flex-column">
-                <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
-                  <i className="fa fa-ellipsis-v text-body mr-2"></i> Traffic
-                  Channels
-                </CardHeader>
-                <Table responsive className="table mb-0">
-                  <thead>
-                    <tr>
-                      <th scope="col" className="bt-0">
-                        Channel
-                      </th>
-                      <th scope="col" className="bt-0">
-                        Sessions
-                      </th>
-                      <th scope="col" className="bt-0">
-                        Prev Period
-                      </th>
-                      <th scope="col" className="text-right bt-0">
-                        Change
-                      </th>
-                      <th scope="col" className="bt-0 text-right">
-                        Trend
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className="align-middle text-inverse">
-                        Organic Search
-                      </td>
-                      <td className="align-middle">{faker.finance.amount()}</td>
-                      <td className="align-middle">
-                        <span data-faker="[[finance.amount]]">949.00</span>
-                      </td>
-                      <td className="align-middle text-right">
-                        -75,0%
-                        <i className="fa fa-caret-down text-danger ml-1"></i>
-                      </td>
-                      <td className="text-right align-middle">
-                        <TinyAreaChart />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="align-middle text-inverse">Direct</td>
-                      <td className="align-middle">{faker.finance.amount()}</td>
-                      <td className="align-middle">
-                        <span data-faker="[[finance.amount]]">157.11</span>
-                      </td>
-                      <td className="align-middle text-right">
-                        82,1%
-                        <i className="fa fa-caret-up text-success ml-1"></i>
-                      </td>
-                      <td className="text-right align-middle">
-                        <TinyAreaChart />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="align-middle text-inverse">
-                        Social Media
-                      </td>
-                      <td className="align-middle">{faker.finance.amount()}</td>
-                      <td className="align-middle">
-                        <span data-faker="[[finance.amount]]">949.00</span>
-                      </td>
-                      <td className="align-middle text-right">
-                        -75,0%
-                        <i className="fa fa-caret-down text-danger ml-1"></i>
-                      </td>
-                      <td className="text-right align-middle">
-                        <TinyAreaChart />
-                      </td>
-                    </tr>
-                  </tbody>
-                </Table>
-                <CardFooter className="mt-auto flex-grow-0">
-                  <Media className="small">
-                    <Media left>
-                      <i className="fa fa-fw fa-info-circle mr-2"></i>
-                    </Media>
-                    <Media body>
-                      How do your users (visitors), sessions (visits) and
-                      pageviews metrics for{" "}
-                      <abbr title="attribute" className="text-dark">
-                        www.webkom.com
-                      </abbr>{" "}
-                      compare to your targets over the last 30 days?
-                    </Media>
-                  </Media>
-                </CardFooter>
-              </Card>
-            </Grid.Col>
             <Grid.Col {...applyColumn("sessions", layouts)}>
               <Card>
                 <CardHeader className="bb-0 pt-3 pb-0 bg-none" tag="h6">
@@ -512,58 +273,6 @@ export class Statistics extends React.Component {
                   </ListGroupItem>
                 </ListGroup>
                 <CardFooter className="flex-grow-0 mt-auto">
-                  <Media className="small">
-                    <Media left>
-                      <i className="fa fa-fw fa-info-circle mr-2"></i>
-                    </Media>
-                    <Media body>
-                      How do your users (visitors), sessions (visits) and
-                      pageviews metrics for{" "}
-                      <abbr title="attribute" className="text-dark">
-                        www.webkom.com
-                      </abbr>{" "}
-                      compare to your targets over the last 30 days?
-                    </Media>
-                  </Media>
-                </CardFooter>
-              </Card>
-            </Grid.Col>
-            <Grid.Col {...applyColumn("organic-traffic", layouts)}>
-              <Card>
-                <CardHeader className="d-flex bb-0 pt-3 bg-none">
-                  <Media>
-                    <Media left className="mr-3">
-                      <i className="fa fa-ellipsis-v"></i>
-                    </Media>
-                    <Media body>
-                      <span className="h6">
-                        How did my organic traffic perform?
-                      </span>
-                      <br />
-                      <span>
-                        Dec 22, 2016 to Dec 31, 2016 <i>(prev.)</i>
-                      </span>
-                    </Media>
-                  </Media>
-                </CardHeader>
-                <CardBody className="d-flex flex-column">
-                  <div className="text-center mb-4">
-                    <h6>Organics Sessons</h6>
-                    <h2>46,982</h2>
-                    <div className="mb-1 text-success">
-                      <i className="fa mr-1 fa-caret-up"></i>
-                      23.34%{" "}
-                      <span>
-                        {" "}
-                        vs {faker.finance.amount()} <i>(prev.)</i>
-                      </span>
-                    </div>
-                  </div>
-                  <Grid.Ready>
-                    <SimpleLineChart height="100%" className="flex-fill" />
-                  </Grid.Ready>
-                </CardBody>
-                <CardFooter>
                   <Media className="small">
                     <Media left>
                       <i className="fa fa-fw fa-info-circle mr-2"></i>
