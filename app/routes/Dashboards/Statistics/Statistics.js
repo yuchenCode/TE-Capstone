@@ -120,6 +120,21 @@ export class Statistics extends React.Component {
             columnSizes={this.state.layouts}
             rowHeight={55}
           >
+            <Grid.Col {...applyColumn("spend", layouts)}>
+              <Card className="mb-3">
+                <CardBody>
+                    <div className="d-flex">
+                        <div>
+                            <h6 className="card-title mb-1">
+                              Process Capability Index (Cpk)
+                            </h6>
+                            <p>Update for each datapoint</p>
+                        </div>
+                    </div>
+                    <AreaChartFillByValue />
+                </CardBody>
+              </Card>
+            </Grid.Col>
             <Grid.Col {...applyColumn("website-performance", layouts)}>
               <Card>
                 <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
@@ -171,21 +186,6 @@ export class Statistics extends React.Component {
                     </Media>
                   </Media>
                 </CardFooter>
-              </Card>
-            </Grid.Col>
-            <Grid.Col {...applyColumn("spend", layouts)}>
-              <Card className="mb-3">
-                <CardBody>
-                    <div className="d-flex">
-                        <div>
-                            <h6 className="card-title mb-1">
-                              Process Capability Index (Cpk)
-                            </h6>
-                            <p>Update for each datapoint</p>
-                        </div>
-                    </div>
-                    <AreaChartFillByValue />
-                </CardBody>
               </Card>
             </Grid.Col>
             <Grid.Col {...applyColumn("sessions", layouts)}>
