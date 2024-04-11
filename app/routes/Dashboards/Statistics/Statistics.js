@@ -123,13 +123,13 @@ export class Statistics extends React.Component {
             <Grid.Col {...applyColumn("website-performance", layouts)}>
               <Card>
                 <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
-                  <i className="fa fa-ellipsis-v mr-2"></i> Website Performance
+                  <i className="fa fa-ellipsis-v mr-2"></i> Model Performance
                 </CardHeader>
                 <ListGroup flush>
                   <ListGroupItem className="bt-0">
                     <WebsitePerformance
-                      title="Bounce Rate (Avg)"
-                      value="46,893"
+                      title="Mean Absolute Error (MAE)"
+                      value="0.000349"
                       valuePercentIcon="caret-up"
                       valuePercentColor="text-success"
                       valuePercent="23,91"
@@ -137,16 +137,16 @@ export class Statistics extends React.Component {
                   </ListGroupItem>
                   <ListGroupItem className="bt-0">
                     <WebsitePerformance
-                      title="Pageviews (Avg)"
-                      value="2.15"
+                      title="Mean Squared Error (MSE)"
+                      value="4.746285"
                       valuePercentColor="text-danger"
                       valuePercent="42,82"
                     />
                   </ListGroupItem>
                   <ListGroupItem className="bt-0">
                     <WebsitePerformance
-                      title="New Sessions"
-                      value="76,40"
+                      title="Root Mean Squared Error (RMSE)"
+                      value="0.006889"
                       valuePercentIcon="caret-up"
                       valuePercentColor="text-success"
                       valuePercent="23,91"
@@ -154,8 +154,8 @@ export class Statistics extends React.Component {
                   </ListGroupItem>
                   <ListGroupItem className="bt-0 bb-0">
                     <WebsitePerformance
-                      title="Time on Site (Avg)"
-                      value="2m:16s"
+                      title="R-squared (R²)"
+                      value="0.696357"
                       valuePercentColor="text-danger"
                       valuePercent="65,28"
                     />
@@ -167,12 +167,7 @@ export class Statistics extends React.Component {
                       <i className="fa fa-fw fa-info-circle mr-2"></i>
                     </Media>
                     <Media body>
-                      How do your users (visitors), sessions (visits) and
-                      pageviews metrics for{" "}
-                      <abbr title="attribute" className="text-dark">
-                        www.webkom.com
-                      </abbr>{" "}
-                      compare to your targets over the last 30 days?
+                      Update for each epoch
                     </Media>
                   </Media>
                 </CardFooter>
@@ -184,12 +179,9 @@ export class Statistics extends React.Component {
                     <div className="d-flex">
                         <div>
                             <h6 className="card-title mb-1">
-                                AreaChartFillByValue
-                                <span className="small ml-1 text-muted">
-                                    #3.04
-                                </span>
+                              Process Capability Index (Cpk)
                             </h6>
-                            <p>Area Charts</p>
+                            <p>Update for each datapoint</p>
                         </div>
                     </div>
                     <AreaChartFillByValue />
@@ -199,27 +191,20 @@ export class Statistics extends React.Component {
             <Grid.Col {...applyColumn("sessions", layouts)}>
               <Card>
                 <CardHeader className="bb-0 pt-3 pb-0 bg-none" tag="h6">
-                  <i className="fa fa-ellipsis-v text-body mr-2"></i> Sessions
-                  by Device Type
+                  <i className="fa fa-ellipsis-v text-body mr-2"></i> Predictions by if Qualified
                 </CardHeader>
                 <CardBody className="d-flex flex-column">
                   <div className={classes["sessions"]}>
                     <SessionByDevice
-                      title="Desktop"
-                      color="purple"
-                      valuePercent="51,5"
-                      value="201,345"
-                    />
-                    <SessionByDevice
-                      title="Mobile"
-                      color="primary"
-                      valuePercent="34,4"
-                      value="134,201"
-                    />
-                    <SessionByDevice
-                      title="Mobile"
+                      title="Qualified"
                       color="success"
-                      valuePercent="20,8"
+                      valuePercent="85.9"
+                      value="335546"
+                    />
+                    <SessionByDevice
+                      title="Not Qualified"
+                      color="danger"
+                      valuePercent="14.1"
                       value="81,525"
                     />
                   </div>
@@ -230,20 +215,14 @@ export class Statistics extends React.Component {
                   >
                     <Progress
                       bar
-                      color="purple"
-                      value="25"
-                      style={{ height: "5px" }}
-                    />
-                    <Progress
-                      bar
-                      color="primary"
-                      value="30"
-                      style={{ height: "5px" }}
-                    />
-                    <Progress
-                      bar
                       color="success"
-                      value="45"
+                      value="86"
+                      style={{ height: "5px" }}
+                    />
+                    <Progress
+                      bar
+                      color="danger"
+                      value="14"
                       style={{ height: "5px" }}
                     />
                   </Progress>
@@ -254,12 +233,7 @@ export class Statistics extends React.Component {
                       <i className="fa fa-fw fa-info-circle mr-2"></i>
                     </Media>
                     <Media body>
-                      How do your users (visitors), sessions (visits) and
-                      pageviews metrics for{" "}
-                      <abbr title="attribute" className="text-dark">
-                        www.webkom.com
-                      </abbr>{" "}
-                      compare to your targets over the last 30 days?
+                      Update for each epoch
                     </Media>
                   </Media>
                 </CardFooter>
