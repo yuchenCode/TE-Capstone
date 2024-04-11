@@ -255,7 +255,7 @@ export class Analytics extends React.Component {
                 </CardFooter>
               </Card>
             </Grid.Col>
-            <Grid.Col {...applyColumn("predicted-ID", layouts)}>
+            {/* <Grid.Col {...applyColumn("predicted-ID", layouts)}>
               <Card>
                 <CardHeader className="bb-0 pt-3 pb-4 bg-none" tag="h6">
                   <i className="fa fa-ellipsis-v mr-2 text-body"></i> Predicted ID and Real Time ID Measurements Simulation
@@ -276,7 +276,7 @@ export class Analytics extends React.Component {
                   </Media>
                 </CardFooter>
               </Card>
-            </Grid.Col>
+            </Grid.Col> */}
             <Grid.Col {...applyColumn("predicted-OD", layouts)}>
               <Card>
                 <CardHeader className="bb-0 pt-3 pb-4 bg-none" tag="h6">
