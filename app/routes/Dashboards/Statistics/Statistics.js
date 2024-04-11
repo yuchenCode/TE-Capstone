@@ -28,7 +28,7 @@ import { HeaderMain } from "../../components/HeaderMain";
 
 import { WebsitePerformance } from "../../components/Analytics/WebsitePerformance";
 import { TinyAreaChart } from "../../components/Analytics/TinyAreaChart";
-import { SimpleLineChart } from "../../Graphs/ReCharts/components/SimpleLineChart";
+import { AreaChartFillByValue } from "./components/AreaChartFillByValue";
 
 import classes from "./Statistics.scss";
 
@@ -120,6 +120,82 @@ export class Statistics extends React.Component {
             columnSizes={this.state.layouts}
             rowHeight={55}
           >
+            <Grid.Col {...applyColumn("website-performance", layouts)}>
+              <Card>
+                <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
+                  <i className="fa fa-ellipsis-v mr-2"></i> Website Performance
+                </CardHeader>
+                <ListGroup flush>
+                  <ListGroupItem className="bt-0">
+                    <WebsitePerformance
+                      title="Bounce Rate (Avg)"
+                      value="46,893"
+                      valuePercentIcon="caret-up"
+                      valuePercentColor="text-success"
+                      valuePercent="23,91"
+                    />
+                  </ListGroupItem>
+                  <ListGroupItem className="bt-0">
+                    <WebsitePerformance
+                      title="Pageviews (Avg)"
+                      value="2.15"
+                      valuePercentColor="text-danger"
+                      valuePercent="42,82"
+                    />
+                  </ListGroupItem>
+                  <ListGroupItem className="bt-0">
+                    <WebsitePerformance
+                      title="New Sessions"
+                      value="76,40"
+                      valuePercentIcon="caret-up"
+                      valuePercentColor="text-success"
+                      valuePercent="23,91"
+                    />
+                  </ListGroupItem>
+                  <ListGroupItem className="bt-0 bb-0">
+                    <WebsitePerformance
+                      title="Time on Site (Avg)"
+                      value="2m:16s"
+                      valuePercentColor="text-danger"
+                      valuePercent="65,28"
+                    />
+                  </ListGroupItem>
+                </ListGroup>
+                <CardFooter className="flex-grow-0 mt-auto">
+                  <Media className="small">
+                    <Media left>
+                      <i className="fa fa-fw fa-info-circle mr-2"></i>
+                    </Media>
+                    <Media body>
+                      How do your users (visitors), sessions (visits) and
+                      pageviews metrics for{" "}
+                      <abbr title="attribute" className="text-dark">
+                        www.webkom.com
+                      </abbr>{" "}
+                      compare to your targets over the last 30 days?
+                    </Media>
+                  </Media>
+                </CardFooter>
+              </Card>
+            </Grid.Col>
+            <Grid.Col {...applyColumn("spend", layouts)}>
+              <Card className="mb-3">
+                <CardBody>
+                    <div className="d-flex">
+                        <div>
+                            <h6 className="card-title mb-1">
+                                AreaChartFillByValue
+                                <span className="small ml-1 text-muted">
+                                    #3.04
+                                </span>
+                            </h6>
+                            <p>Area Charts</p>
+                        </div>
+                    </div>
+                    <AreaChartFillByValue />
+                </CardBody>
+              </Card>
+            </Grid.Col>
             <Grid.Col {...applyColumn("sessions", layouts)}>
               <Card>
                 <CardHeader className="bb-0 pt-3 pb-0 bg-none" tag="h6">
@@ -173,106 +249,6 @@ export class Statistics extends React.Component {
                   </Progress>
                 </CardBody>
                 <CardFooter className={`${classes["sessions-info"]} mt-auto`}>
-                  <Media className="small">
-                    <Media left>
-                      <i className="fa fa-fw fa-info-circle mr-2"></i>
-                    </Media>
-                    <Media body>
-                      How do your users (visitors), sessions (visits) and
-                      pageviews metrics for{" "}
-                      <abbr title="attribute" className="text-dark">
-                        www.webkom.com
-                      </abbr>{" "}
-                      compare to your targets over the last 30 days?
-                    </Media>
-                  </Media>
-                </CardFooter>
-              </Card>
-            </Grid.Col>
-            <Grid.Col {...applyColumn("spend", layouts)}>
-              <Card>
-                <CardHeader className="d-flex bb-0 pt-3 bg-none">
-                  <span className="h6">
-                    <i className="fa fa-ellipsis-v text-body mr-2"></i> Spend
-                  </span>
-                  <span className="ml-auto text-right">
-                    Dec 22, 2016 to
-                    <br />
-                    Dec 31, 2016 <i>(prev.)</i>
-                  </span>
-                </CardHeader>
-                <CardBody>
-                  <div className="text-center mb-4">
-                    <h2>$2,890.12</h2>
-                    <div className="mb-1 text-success">
-                      <i className="fa mr-1 fa-caret-up"></i>
-                      23.34%
-                    </div>
-                    <div>vs {faker.finance.amount()} (prev.)</div>
-                  </div>
-                </CardBody>
-                <CardBody className="p-0">
-                  <TinyAreaChart height={70} />
-                </CardBody>
-                <CardFooter>
-                  <Media className="small">
-                    <Media left>
-                      <i className="fa fa-fw fa-info-circle mr-2"></i>
-                    </Media>
-                    <Media body>
-                      How do your users (visitors), sessions (visits) and
-                      pageviews metrics for{" "}
-                      <abbr title="attribute" className="text-dark">
-                        www.webkom.com
-                      </abbr>{" "}
-                      compare to your targets over the last 30 days?
-                    </Media>
-                  </Media>
-                </CardFooter>
-              </Card>
-            </Grid.Col>
-            <Grid.Col {...applyColumn("website-performance", layouts)}>
-              <Card>
-                <CardHeader className="bb-0 pt-3 bg-none" tag="h6">
-                  <i className="fa fa-ellipsis-v mr-2"></i> Website Performance
-                </CardHeader>
-                <ListGroup flush>
-                  <ListGroupItem className="bt-0">
-                    <WebsitePerformance
-                      title="Bounce Rate (Avg)"
-                      value="46,893"
-                      valuePercentIcon="caret-up"
-                      valuePercentColor="text-success"
-                      valuePercent="23,91"
-                    />
-                  </ListGroupItem>
-                  <ListGroupItem className="bt-0">
-                    <WebsitePerformance
-                      title="Pageviews (Avg)"
-                      value="2.15"
-                      valuePercentColor="text-danger"
-                      valuePercent="42,82"
-                    />
-                  </ListGroupItem>
-                  <ListGroupItem className="bt-0">
-                    <WebsitePerformance
-                      title="New Sessions"
-                      value="76,40"
-                      valuePercentIcon="caret-up"
-                      valuePercentColor="text-success"
-                      valuePercent="23,91"
-                    />
-                  </ListGroupItem>
-                  <ListGroupItem className="bt-0 bb-0">
-                    <WebsitePerformance
-                      title="Time on Site (Avg)"
-                      value="2m:16s"
-                      valuePercentColor="text-danger"
-                      valuePercent="65,28"
-                    />
-                  </ListGroupItem>
-                </ListGroup>
-                <CardFooter className="flex-grow-0 mt-auto">
                   <Media className="small">
                     <Media left>
                       <i className="fa fa-fw fa-info-circle mr-2"></i>
