@@ -12,13 +12,13 @@ import {
 import colors from './../../../../colors';
 
 const data = [
-      {name: 'Page A', uv: 4000, pv: 2400, amt: 2400},
-      {name: 'Page B', uv: 3000, pv: 1398, amt: 2210},
-      {name: 'Page C', uv: 2000, pv: 9800, amt: 2290},
-      {name: 'Page D', uv: 2780, pv: 3908, amt: 2000},
-      {name: 'Page E', uv: 1890, pv: 4800, amt: 2181},
-      {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
-      {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
+      {name: '0', uv: 4000, pv: 2400, amt: 2400},
+      {name: '10', uv: 3000, pv: 1398, amt: 2210},
+      {name: '20', uv: 2000, pv: 9800, amt: 2290},
+      {name: '30', uv: 2780, pv: 3908, amt: 2000},
+      {name: '40', uv: 1890, pv: 4800, amt: 2181},
+      {name: '50', uv: 2390, pv: 3800, amt: 2500},
+      {name: '60', uv: 3490, pv: 4300, amt: 2100},
 ];
 
 const StackedAreaChart = () => (
@@ -30,7 +30,6 @@ const StackedAreaChart = () => (
             <YAxis/>
             <Tooltip/>
             <Area dataKey='uv' stackId="1" stroke={ colors['primary'] } fill={ colors['primary-03'] } />
-            <Area dataKey='pv' stackId="1" stroke={ colors['purple'] } fill={ colors['purple-03'] } />
             <Area dataKey='amt' stackId="1" stroke={ colors['success'] } fill={ colors['success-03'] } />
         </AreaChart>
     </ResponsiveContainer>
