@@ -202,35 +202,21 @@ export class Analytics extends React.Component {
                 <CardBody className="d-flex flex-column">
                   <div className="text-center mb-4">
                     <h2>Random Forest Model</h2>
-                    {/* <h2>46,982</h2>
-                    <div className="mb-1 text-success">
-                      <i className="fa mr-1 fa-caret-up"></i>
-                      23.34%{" "}
-                      <span>
-                        {" "}
-                        vs {faker.finance.amount()} <i>(prev.)</i>
-                      </span>
-                    </div> */}
                   </div>
                   <Grid.Ready>
                     <DashedLineChart height="100%" width="1000% !important" className="flex-fill" />
                   </Grid.Ready>
                 </CardBody>
-                {/* <CardFooter>
+                <CardFooter>
                   <Media className="small">
                     <Media left>
                       <i className="fa fa-fw fa-info-circle mr-2"></i>
                     </Media>
                     <Media body>
-                      How do your users (visitors), sessions (visits) and
-                      pageviews metrics for{" "}
-                      <abbr title="attribute" className="text-dark">
-                        www.webkom.com
-                      </abbr>{" "}
-                      compare to your targets over the last 30 days?
+                  Random Forest model analysis based on predicted and actual data
                     </Media>
                   </Media>
-                </CardFooter> */}
+                </CardFooter>
               </Card>
             </Grid.Col>
 
@@ -316,28 +302,19 @@ export class Analytics extends React.Component {
                       <i className="fa fa-ellipsis-v"></i>
                     </Media>
                     <Media body>
-                      <span className="h6">
-                        How did my organic traffic perform?
+                      <span className="h5">
+                        Actual vs Predicted Values
                       </span>
                       <br />
                       <span>
-                        Dec 22, 2016 to Dec 31, 2016 <i>(prev.)</i>
+                        Dec 22, 2016 to Dec 31, 2023
                       </span>
                     </Media>
                   </Media>
                 </CardHeader>
                 <CardBody className="d-flex flex-column">
                   <div className="text-center mb-4">
-                    <h6>Organics Sessons</h6>
-                    <h2>46,982</h2>
-                    <div className="mb-1 text-success">
-                      <i className="fa mr-1 fa-caret-up"></i>
-                      23.34%{" "}
-                      <span>
-                        {" "}
-                        vs {faker.finance.amount()} <i>(prev.)</i>
-                      </span>
-                    </div>
+                    <h2>Decision Tree Model</h2>
                   </div>
                   <Grid.Ready>
                     <DashedLineChart height="50%" width="100%" className="flex-fill" />
@@ -349,12 +326,7 @@ export class Analytics extends React.Component {
                       <i className="fa fa-fw fa-info-circle mr-2"></i>
                     </Media>
                     <Media body>
-                      How do your users (visitors), sessions (visits) and
-                      pageviews metrics for{" "}
-                      <abbr title="attribute" className="text-dark">
-                        www.webkom.com
-                      </abbr>{" "}
-                      compare to your targets over the last 30 days?
+                      Decision Tree Model analysis based on predicted and actual data
                     </Media>
                   </Media>
                 </CardFooter>
