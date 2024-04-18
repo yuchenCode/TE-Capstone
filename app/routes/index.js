@@ -13,6 +13,7 @@ import Monitor from './Dashboards/Monitor';
 import Financial from './Dashboards/Financial';
 import Stock from './Dashboards/Stock';
 import Reports from './Dashboards/Reports';
+import Statistics from './Dashboards/Statistics';
 
 import Widgets from './Widgets';
 
@@ -123,6 +124,7 @@ export const RoutedContent = () => {
             <Route path="/dashboards/financial" exact component={Financial} />
             <Route path="/dashboards/stock" exact component={Stock} />
             <Route path="/dashboards/reports" exact component={Reports} />
+            <Route path="/dashboards/statistics" exact component={Statistics} />
 
             <Route path='/widgets' exact component={Widgets} />
             
