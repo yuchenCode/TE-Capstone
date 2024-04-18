@@ -28,9 +28,8 @@ const dataGenerator = (index) => {
     return {
         key: index,
         month: moment(CHART_START_DATE).add(index, 'months').format('MMM YY'),
-        "Tokyo": referenceValue,
-        "New York": _.random(1200, 2200),
-        "Berlin": referenceValue - _.random(halfedRefVal, halfedRefVal * 1.1),
+        "Real OD": referenceValue,
+        "Predicted OD": referenceValue - _.random(halfedRefVal, halfedRefVal * 1.1),
     };
 }
 
@@ -47,7 +46,8 @@ const generateDot = ({stroke, ...other}) => (
     />
 );
 
-export const AudienceMetricsChart = ({height, className}) => (
+export const AudienceMetricsChart = ({height, className}) => {
+    return ( 
     <ResponsiveContainer
         width='100%'
         minHeight='250px'
@@ -55,7 +55,7 @@ export const AudienceMetricsChart = ({height, className}) => (
         {...(!_.isUndefined(height) ? {
             height
         } : {
-            aspect: 2 / 1
+            aspect: 1 / 1
         })}
     >
         <ComposedChart data={data}
@@ -65,12 +65,13 @@ export const AudienceMetricsChart = ({height, className}) => (
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey='New York' barSize={5} fill={ colors['400'] } />
-          <Area dataKey='Tokyo' fill={ colors['purple-02'] } stroke={ colors['purple'] } activeDot={ null } />
-          <Area dataKey='Berlin' fill={ colors['primary-04'] } stroke={ colors['primary'] } activeDot={{r: 5}} dot={generateDot}  />
+
+          <Area dataKey='Real OD' fill={ colors['purple-02'] } stroke={ colors['purple'] } activeDot={ null } />
+          <Area dataKey='Predicted OD' fill={ colors['primary-04'] } stroke={ colors['primary'] } activeDot={{r: 5}} dot={generateDot}  />
        </ComposedChart>
     </ResponsiveContainer>
-);
+    );
+};
 AudienceMetricsChart.propTypes = {
     height: PropTypes.string,
     className: PropTypes.string
